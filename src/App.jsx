@@ -6,7 +6,7 @@ function App() {
 
   const [user, setuser] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/users')
+    fetch('http://localhost:5000/user')
       .then(res => res.json())
       .then(data => setuser(data))
   }, [])
