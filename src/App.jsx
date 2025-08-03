@@ -18,6 +18,16 @@ function App() {
     const email = fromdata.email.value
     const needdata = { name, email }
     console.log(needdata);
+    fetch('http://localhost:5000/user', {
+      method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(needdata)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+
   }
 
   return (
