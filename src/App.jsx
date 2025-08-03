@@ -18,7 +18,7 @@ function App() {
     const email = fromdata.email.value
     const needdata = { name, email }
     console.log(needdata);
-    fetch('http://localhost:5000/user', {
+    fetch('http://localhost:5000/users', {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -26,7 +26,12 @@ function App() {
       body: JSON.stringify(needdata)
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        const newuser = [...user, data]
+        setuser(newuser)
+        fromdata.reset()
+      })
 
   }
 
